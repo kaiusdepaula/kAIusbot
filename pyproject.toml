@@ -1,0 +1,19 @@
+[project]
+name = "kAIusbot"
+version = "0.1.0"
+description = "This project is a Streamlit web application that allows users to generate images based on text input."
+authors = [
+    {name = "kaiusdepaula", email = "\"\""},
+]
+dependencies = []
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
