@@ -3,9 +3,9 @@ name = "kAIusbot"
 version = "0.1.0"
 description = "This project is a Streamlit web application that allows users to generate images based on text input."
 authors = [
-    {name = "kaiusdepaula", email = "\"\""},
+    {name = "kaiusdepaula", email = ""},
 ]
-dependencies = []
+dependencies = ["streamlit>=1.40.0", "langchain>=0.3.7"]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
