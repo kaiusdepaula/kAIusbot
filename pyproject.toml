@@ -5,7 +5,7 @@ description = "This project is a Streamlit web application that allows users to 
 authors = [
     {name = "kaiusdepaula", email = ""},
 ]
-dependencies = ["streamlit>=1.40.0", "langchain>=0.3.7"]
+dependencies = ["streamlit>=1.40.0", "langchain>=0.3.7", "langchain-community>=0.3.7", "scikit-learn>=1.5.2", "langchain-ollama>=0.2.0"]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
