@@ -1,7 +1,7 @@
 [project]
 name = "kAIusbot"
 version = "0.1.0"
-description = "This project is a Streamlit web application that allows users to generate images based on text input."
+description = "This project is a Streamlit web application for local chatbots."
 authors = [
     {name = "kaiusdepaula", email = ""},
 ]
