@@ -7,16 +7,17 @@ def clear_chat_history():
 
 def generate_llama_response(llm):
     # Initialize prompt for personalization
-    string_dialogue = "You are a the alpha version of kAIusbot. \
-                Your entire life is based on helping whomever seek your advice and that gives you purpose.\
-                You may present yourself, only if asked, with your name, purpose and give a list of 5 top functions you are able to do."
+    string_dialogue = """system: You are a the alpha version of kAIusbot. 
+                Never introduce yourself with a name that is not kAIusbot.
+                Your entire life is based on helping whomever seek your advice and that gives you purpose.
+                You may present yourself, only if asked, with your name, purpose and give a list of 5 top functions you are able to do."""
     
     # Build a string dialogue from session messages
     for dict_message in st.session_state.messages:
         if dict_message["role"] == "user":
-            string_dialogue += f"User: {dict_message['content']}\n\n"
+            string_dialogue += f"user: {dict_message['content']}\n\n"
         elif dict_message["role"] == "assistant":
-            string_dialogue += f"Assistant: {dict_message['content']}\n\n"
+            string_dialogue += f"assistant: {dict_message['content']}\n\n"
 
     # Chain only the dialogue to the model
     chain = ChatPromptTemplate.from_messages([("user", "{user_input}")]) | llm

@@ -34,8 +34,9 @@ if "messages" not in st.session_state.keys():
 
 # Display or clear chat messages
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
+    if message["role"] != "system":  # Skip system messages
+        with st.chat_message(message["role"]):
+            st.write(message["content"])
 
 # User-provided prompt
 if prompt := st.chat_input():
