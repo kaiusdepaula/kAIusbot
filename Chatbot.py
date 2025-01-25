@@ -24,7 +24,7 @@ with st.sidebar:
 # Initiate LLM model
 llm = ChatOllama(
     model="llama3.1",
-    temperature=0.2,
+    temperature=0.1,
     # other params...
 )
 
