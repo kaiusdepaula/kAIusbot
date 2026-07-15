@@ -1,14 +1,40 @@
 # kAIusbot
 
-This is my all-in-one personal assistant for multi-purpose AI applications running entirely on local hardware and with limited access to the global network.
+Personal agent development lab. Break things, test ideas, figure out what works.
 
-The app also leverages Retrieval-Augmented Generation (RAG) to enhance the text model’s understanding by incorporating additional relevant context.
+## Stack
 
-Features
-- Text Understanding: process and understand user input text with LLama, a powerful large language model.
-- Image Generation: create somewhat understandable images with Stable Diffusion based on the processed text.
-- Retrieval-Augmented Generation (RAG): improve responses by retrieving relevant information and augmenting the input text.
-- Streamlit UI: simple, interactive web interface.
-- Dockerized: easily set up and run the application in a containerized environment.
+- **Web UI:** Streamlit
+- **Agent framework:** pydantic-ai (OpenAI-compatible, Ollama backend)
+- **Tracing:** MLflow
+- **Vector retrieval:** sentence-transformers + DuckDB (local, offline)
+- **Python:** 3.11+ via uv
 
-More info to come!
+## Setup
+
+```bash
+./install.sh          # Ollama + models
+uv sync               # Python deps
+```
+
+## Run
+
+```bash
+uv run streamlit run main.py       # Chat UI → http://localhost:8501
+uv run python scripts/ingest.py    # Build doc index (optional)
+mlflow ui --backend-store-uri sqlite:///mlflow.db  # Traces
+```
+
+## Project layout
+
+```
+src/
+  agent.py           # Agent definition, tools, streaming
+  retrieval/         # Local vector search (chunk, embed, index, store)
+  webapp/            # Streamlit UI
+  prompts/           # System prompts
+scripts/
+  ingest.py          # Build/rebuild the docs vector index
+docs/
+  troubleshooting/   # Fix notes (e.g., ROCm + uv)
+```

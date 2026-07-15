@@ -1,1 +1,1 @@
-from kaiusbot.webapp.helpers import *
+from src.webapp.helpers import *
